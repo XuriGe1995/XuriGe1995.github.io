@@ -82,6 +82,13 @@
         replaceContent("news-content", newsHeading.nextElementSibling.cloneNode(true));
       }
       if (publications) {
+        publications.querySelectorAll(".product-cell").forEach(function (entry) {
+          Array.from(entry.children).forEach(function (column) {
+            if (!column.classList.contains("product-cell-text") && column.querySelector(".product-cell-img")) {
+              column.remove();
+            }
+          });
+        });
         replaceContent("publications-content", publications.cloneNode(true));
       }
       if (activities) {
